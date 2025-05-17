@@ -40,7 +40,7 @@ def random_step(t,_pc_trainer, var=2.):
     optimizer = _pc_trainer.get_optimizer_x()
     # optimizer.zero_grad()
     for x in xs:
-        x.grad.normal_(0.,np.sqrt(var/optimizer.defaults['lr']))
+        x.grad.normal_(0.,np.sqrt(var * optimizer.defaults['lr']))
     optimizer.step()
 
 
